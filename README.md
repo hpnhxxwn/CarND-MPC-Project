@@ -13,6 +13,10 @@ I transformed the waypoints to the vehicle's perspective. The vehicle is the ori
 
 The original kinematic equations depend on the actuations from the previous timestamp, but with a delay of 100ms on top of the connection delay. N = 8 produces 125ms interval which can account for 100ms and the connection delay. I applied the actuations one 125ms interval later. I also adjusted weights for the constraints. For CTE error, I use weight 3500. Weight larger than 3500 does not produce obvious improvement. Epsi weight is 500 so that the vehicle's movement will not be too jerky. The weight for steering angle difference is 1000 to avoid jerky movement as well. Smaller weights for these variables will produce erratic behavior. I have also tried put weights on other state variables, but I did not notice obvious improvements.
 
+### Video
+I have recoreded a video on YouTube:
+![video](https://www.youtube.com/watch?v=ZfJxpBU2f8E)
+
 ---
 ## Dependencies
 
