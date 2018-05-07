@@ -5,7 +5,7 @@ Self-Driving Car Engineer Nanodegree Program
 ### Model Description
 This model is a kinematic model that includes vehicle's x and y coordinates, velocity and angle (psi), as well as the cross check error and psi error. Actuator output are acceleration and steering angle. The model combines the state and actuation from the previous timestamp to calculate the state at the current timestamp based on the equations below:
 
-[!pic](https://github.com/hpnhxxwn/CarND-MPC-Project/blob/master/pic/equations.jpg)
+[pic](https://github.com/hpnhxxwn/CarND-MPC-Project/blob/master/pic/equations.jpg)
 
 In the model, N = 8, and dt = 0.1. This means the model use 0.8s to predict the trajectory. I have tried smaller N (< 8) and larger N (> 10), and smaller dt (< 0.1) and larger dt (> 0.1), but they produced erratic behavior. Actually N could be 8, 9 or 10. I did not notice very different behavior within this range.
 
