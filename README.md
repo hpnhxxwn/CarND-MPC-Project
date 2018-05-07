@@ -15,7 +15,7 @@ The original kinematic equations depend on the actuations from the previous time
 
 ### Video
 I have recoreded a video on YouTube:
-![video](https://www.youtube.com/watch?v=ZfJxpBU2f8E)
+[video](https://www.youtube.com/watch?v=ZfJxpBU2f8E)
 
 ---
 ## Dependencies
