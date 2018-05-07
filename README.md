@@ -2,7 +2,18 @@
 Self-Driving Car Engineer Nanodegree Program
 
 ---
+### Model Description
+This model is a kinematic model that includes vehicle's x and y coordinates, velocity and angle (psi), as well as the cross check error and psi error. Actuator output are acceleration and steering angle. The model combines the state and actuation from the previous timestamp to calculate the state at the current timestamp based on the equations below:
 
+[!pic]()
+
+In the model, N = 8, and dt = 0.1. This means the model use 0.8s to predict the trajectory. I have tried smaller N (< 8) and larger N (> 10), and smaller dt (< 0.1) and larger dt (> 0.1), but they produced erratic behavior. Actually N could be 8, 9 or 10. I did not notice very different behavior within this range.
+
+I transformed the waypoints to the vehicle's perspective. The vehicle is the origin (0, 0) and the angle is also zero. Then I use a polynomial of order 3 to fit the waypoints.
+
+The original kinematic equations depend on the actuations from the previous timestamp, but with a delay of 100ms on top of the connection delay. N = 8 produces 125ms interval which can account for 100ms and the connection delay. I applied the actuations one 125ms interval later. I also adjusted weights for the constraints. For CTE error, I use weight 3500. Weight larger than 3500 does not produce obvious improvement. Epsi weight is 500 so that the vehicle's movement will not be too jerky. The weight for steering angle difference is 1000 to avoid jerky movement as well. Smaller weights for these variables will produce erratic behavior. I have also tried put weights on other state variables, but I did not notice obvious improvements.
+
+---
 ## Dependencies
 
 * cmake >= 3.5
